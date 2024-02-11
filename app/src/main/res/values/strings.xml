@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">BringThemHome</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="kidnapped">Kidnapped</string>
+    <string name="days">DAYS</string>
+    <string name="hrs">HRS</string>
+    <string name="min">MIN</string>
+    <string name="sec">SEC</string>
+    <string name="activities">Activities</string>
+    <string name="released">Released</string>
+    <string name="before_23">Before 23</string>
+    <string name="dd" translatable="false">DD</string>
+    <string name="hh" translatable="false">HH</string>
+    <string name="mm" translatable="false">MM</string>
+    <string name="ss" translatable="false">SS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="all_kidnapped">All Kidnapped</string>
+</resources>

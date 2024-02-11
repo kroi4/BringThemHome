@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BringThemHome</string>
+    <string name="kidnapped">חטופים</string>
+    <string name="days">ימים</string>
+    <string name="hrs">שעות</string>
+    <string name="min">דקות</string>
+    <string name="sec">שניות</string>
+    <string name="activities">פעילים</string>
+    <string name="released">משוחררים</string>
+    <string name="before_23">לפני 23</string>
+    <string name="all_kidnapped">כל החטופים</string>
+</resources>

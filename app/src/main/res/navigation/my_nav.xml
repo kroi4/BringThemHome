@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homepageFragment">
+
+    <fragment
+        android:id="@+id/homepageFragment"
+        android:name="il.co.bringthemhome.ui.screens.HomePageFragment"
+        android:label="home_page_activity"
+        tools:layout="@layout/home_page_layout" >
+        <action
+            android:id="@+id/action_homepageFragment_to_activitiesFragment"
+            app:destination="@id/activitiesFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_homepageFragment_to_beforeFragment"
+            app:destination="@id/beforeFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_homepageFragment_to_releasedFragment"
+            app:destination="@id/releasedFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_homepageFragment_to_allKidnappedFragment"
+            app:destination="@id/allKidnappedFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/activitiesFragment"
+        android:name="il.co.bringthemhome.ui.screens.ActivitiesFragment"
+        android:label="activities_layout"
+        tools:layout="@layout/activities_layout" >
+        <action
+            android:id="@+id/action_activitiesFragment_to_homepageFragment"
+            app:destination="@id/homepageFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/beforeFragment"
+        android:name="il.co.bringthemhome.ui.screens.BeforeFragment"
+        android:label="before_activity"
+        tools:layout="@layout/before_layout" >
+        <action
+            android:id="@+id/action_beforeFragment_to_homepageFragment"
+            app:destination="@id/homepageFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/releasedFragment"
+        android:name="il.co.bringthemhome.ui.screens.ReleasedFragment"
+        android:label="released_layout"
+        tools:layout="@layout/released_layout" >
+        <action
+            android:id="@+id/action_releasedFragment_to_homepageFragment"
+            app:destination="@id/homepageFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/allKidnappedFragment"
+        android:name="il.co.bringthemhome.ui.screens.AllKidnappedFragment"
+        android:label="all_kidnapped_layout"
+        tools:layout="@layout/all_kidnapped_layout" >
+        <action
+            android:id="@+id/action_allKidnappedFragment_to_homepageFragment"
+            app:destination="@id/homepageFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
+    </fragment>
+</navigation>
