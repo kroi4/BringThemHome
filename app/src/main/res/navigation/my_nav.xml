@@ -38,6 +38,9 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_homepageFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/activitiesFragment"
@@ -90,5 +93,20 @@
             app:exitAnim="@anim/to_right"
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_allKidnappedFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="il.co.bringthemhome.ui.screens.SearchFragment"
+        android:label="search_layout"
+        tools:layout="@layout/search_layout" >
+        <action
+            android:id="@+id/action_searchFragment_to_homepageFragment"
+            app:destination="@id/homepageFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_allKidnappedFragment"
+            app:destination="@id/allKidnappedFragment" />
     </fragment>
 </navigation>

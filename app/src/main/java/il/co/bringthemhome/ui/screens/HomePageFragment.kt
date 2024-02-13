@@ -27,8 +27,6 @@ class HomePageFragment : Fragment(R.layout.home_page_layout) {
     ): View? {
         binding = HomePageLayoutBinding.inflate(layoutInflater)
 
-
-
         return binding.root
     }
 

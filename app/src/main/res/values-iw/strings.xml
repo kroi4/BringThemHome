@@ -10,4 +10,11 @@
     <string name="released">משוחררים</string>
     <string name="before_23">לפני 23</string>
     <string name="all_kidnapped">כל החטופים</string>
+    <string name="search" >חיפוש</string>
+    <string name="name" >שם</string>
+    <string name="gender">מגדר</string>
+    <string name="age">גיל</string>
+    <string name="from">החל מ</string>
+    <string name="to">עד ל</string>
+    <string name="couldnt_connect_to_server">לא ניתן להתחבר לשרת</string>
 </resources>

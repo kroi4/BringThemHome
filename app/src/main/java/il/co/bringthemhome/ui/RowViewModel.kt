@@ -1,6 +1,7 @@
 package il.co.bringthemhome.ui
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import il.co.bringthemhome.data.models.Kidnapped
@@ -15,6 +16,9 @@ class RowViewModel(private val rowRepository: RowRepository): ViewModel() {
     var allKidnapped = rowRepository.getAllRows()
     var releasedKidnapped = rowRepository.getReleasedRows()
     var activitiesKidnapped = rowRepository.getActivitiesRows()
+
+    val filteredRows = MutableLiveData<List<Row>>()
+
 
     fun getAllRows() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -32,6 +36,14 @@ class RowViewModel(private val rowRepository: RowRepository): ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             allKidnapped = rowRepository.getActivitiesRows()
         }
+    }
+
+    fun getFilteredNameRows(
+        userInput: String
+    ): List<Row> {
+        return rowRepository.getFilteredNameRows(
+            userInput
+        )
     }
 
 

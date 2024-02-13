@@ -25,5 +25,6 @@ interface RowDao {
     @Query("SELECT * FROM rows WHERE status = '1'")
     fun getActivitiesRows(): LiveData<List<Row>>
 
-
+    @Query("SELECT * FROM rows WHERE b LIKE '%' || :userInput || '%' OR c LIKE '%' || :userInput || '%'\n")
+    suspend fun getFilteredNameRows(userInput: String): List<Row>
 }

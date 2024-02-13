@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -84,7 +85,6 @@ class AllKidnappedFragment : Fragment() {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setView(itemBinding.root)
                 val dialog = builder.create()
-                dialog.window?.setBackgroundDrawable(ColorDrawable(Color.BLACK))
 
                 itemBinding.apply {
                     tvDetailKidnappedName.text =
@@ -112,7 +112,7 @@ class AllKidnappedFragment : Fragment() {
         })
     }
 
-    fun fetch() {
+    private fun fetch() {
         viewModel.getAllRows()
         viewModel.allKidnapped.observe(viewLifecycleOwner) {
             when (it.status) {
@@ -143,11 +143,11 @@ class AllKidnappedFragment : Fragment() {
                     binding.rvKidnapped.isVisible = false
                     Toast.makeText(
                         requireContext(),
-                        "Couldn't connect to server!",
+                        getString(R.string.couldnt_connect_to_server),
                         Toast.LENGTH_SHORT
                     )
                         .show()
-                    binding.tvStatus.text = "Couldn't connect to server"
+                    binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
                     binding.tvStatus.isVisible = true
                 }
 
@@ -156,11 +156,11 @@ class AllKidnappedFragment : Fragment() {
                     binding.rvKidnapped.isVisible = false
                     Toast.makeText(
                         requireContext(),
-                        "Couldn't connect to server!",
+                        getString(R.string.couldnt_connect_to_server),
                         Toast.LENGTH_SHORT
                     )
                         .show()
-                    binding.tvStatus.text = "Couldn't connect to server"
+                    binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
                     binding.tvStatus.isVisible = true
                 }
             }

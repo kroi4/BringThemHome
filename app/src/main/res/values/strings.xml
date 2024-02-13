@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">BringThemHome</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="kidnapped">Kidnapped</string>
     <string name="days">DAYS</string>
     <string name="hrs">HRS</string>
@@ -13,6 +12,13 @@
     <string name="hh" translatable="false">HH</string>
     <string name="mm" translatable="false">MM</string>
     <string name="ss" translatable="false">SS</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="all_kidnapped">All Kidnapped</string>
+    <string name="search">search</string>
+    <string name="name">name</string>
+    <string name="gender">gender</string>
+    <string name="age">age</string>
+    <string name="from">from</string>
+    <string name="to">to</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="couldnt_connect_to_server">Couldn\'t connect to server</string>
 </resources>

@@ -44,11 +44,18 @@ class RowRepository(
         { localDatasource.insertRow(it.rows) }
     )
 
+    fun getFilteredNameRows(
+        userInput: String
+    ): List<Row> = runBlocking {
+        rowDatabase.rowDao().getFilteredNameRows(
+            userInput
+        )
+    }
+
 
     fun clearRows() {
         rowDatabase.rowDao().clearRows()
     }
-
 
 
 }
