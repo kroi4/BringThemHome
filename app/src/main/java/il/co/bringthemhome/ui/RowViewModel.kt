@@ -46,6 +46,14 @@ class RowViewModel(private val rowRepository: RowRepository): ViewModel() {
         )
     }
 
+    fun getFilteredRows(
+        name: String?, minAge: String?, maxAge: String?, gender: String?, city: String?
+    ): List<Row> {
+        return rowRepository.getFilteredRows(
+            name, minAge, maxAge, gender, city
+        )
+    }
+
 
     val rows: LiveData<Kidnapped>
         get() = rowRepository.rows

@@ -27,4 +27,15 @@ interface RowDao {
 
     @Query("SELECT * FROM rows WHERE b LIKE '%' || :userInput || '%' OR c LIKE '%' || :userInput || '%'\n")
     suspend fun getFilteredNameRows(userInput: String): List<Row>
+
+    @Query("""
+    SELECT * FROM rows
+    WHERE (:name IS NULL OR :name = '' OR (b || ' ' || c) LIKE '%' || :name || '%' OR (c || ' ' || b) LIKE '%' || :name || '%')
+    AND (:minAge IS NULL OR :minAge = '' OR d >= CAST(:minAge AS INTEGER))
+    AND (:maxAge IS NULL OR :maxAge = '' OR d <= CAST(:maxAge AS INTEGER))
+    AND (:gender IS NULL OR :gender = '' OR e = :gender)
+    AND (:city IS NULL OR :city = '' OR f LIKE '%' || :city || '%')
+""")
+    suspend fun getFilteredRows(name: String?, minAge: String?, maxAge: String?, gender: String?, city: String?): List<Row>
+
 }

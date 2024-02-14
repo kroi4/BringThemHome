@@ -14,7 +14,15 @@
     <string name="name" >שם</string>
     <string name="gender">מגדר</string>
     <string name="age">גיל</string>
-    <string name="from">החל מ</string>
-    <string name="to">עד ל</string>
+    <string name="min_age">החל מ</string>
+    <string name="max_age">עד ל</string>
     <string name="couldnt_connect_to_server">לא ניתן להתחבר לשרת</string>
+    <string name="city">עיר</string>
+    <string name="male">גבר</string>
+    <string name="female">אישה</string>
+    <string name="none">ללא</string>
+    <string name="age_range">בחר טווח גילאים</string>
+    <string name="ok">אישור</string>
+    <string name="selected_age_range">טווח גילאים נבחר</string>
+    <string name="cancel">ביטול</string>
 </resources>

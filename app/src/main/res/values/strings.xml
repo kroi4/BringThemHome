@@ -17,8 +17,15 @@
     <string name="name">name</string>
     <string name="gender">gender</string>
     <string name="age">age</string>
-    <string name="from">from</string>
-    <string name="to">to</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="min_age">from</string>
+    <string name="max_age">to</string>
     <string name="couldnt_connect_to_server">Couldn\'t connect to server</string>
+    <string name="city">city</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="none">none</string>
+    <string name="age_range">Select an age range</string>
+    <string name="ok">OK</string>
+    <string name="selected_age_range">Selected age range</string>
+    <string name="cancel">CANCEL</string>
 </resources>
