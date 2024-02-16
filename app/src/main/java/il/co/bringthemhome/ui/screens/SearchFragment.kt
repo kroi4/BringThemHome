@@ -116,8 +116,7 @@ class SearchFragment : Fragment() {
                 }
 
                 override fun afterTextChanged(s: Editable?) {
-                    currentCityInput = s?.toString()
-                    performSearch()
+
                 }
             })
 

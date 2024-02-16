@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -27,6 +28,7 @@ import il.co.bringthemhome.utils.Resource
 import il.co.bringthemhome.utils.Success
 import il.co.bringthemhome.utils.autoCleared
 import il.co.bringthemhome.utils.imgGlideCaster
+import il.co.bringthemhome.utils.showToast
 
 class ActivitiesFragment : Fragment() {
 
@@ -94,20 +96,9 @@ class ActivitiesFragment : Fragment() {
 
                     dialog.show()
                 }
-
-//                Toast.makeText(
-//                    requireContext(),
-//                    "${it.status.data[index]}", Toast.LENGTH_SHORT
-//                ).show()
             }
 
-            override fun onItemLongClicked(index: Int) {
-                //                    viewModel.setItem(it.result.records!![index])
-                //                    Toast.makeText(
-                //                        requireContext(),
-                //                        "${it.result.records!![index]}", Toast.LENGTH_SHORT
-                //                    ).show()
-            }
+            override fun onItemLongClicked(index: Int) {}
         })
     }
 

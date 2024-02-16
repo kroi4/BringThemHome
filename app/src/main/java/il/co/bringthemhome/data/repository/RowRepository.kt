@@ -44,13 +44,6 @@ class RowRepository(
         { localDatasource.insertRow(it.rows) }
     )
 
-    fun getFilteredNameRows(
-        userInput: String
-    ): List<Row> = runBlocking {
-        rowDatabase.rowDao().getFilteredNameRows(
-            userInput
-        )
-    }
 
     fun getFilteredRows(
         name: String?, minAge: String?, maxAge: String?, gender: String?, city: String?

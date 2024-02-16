@@ -17,9 +17,6 @@ class RowViewModel(private val rowRepository: RowRepository): ViewModel() {
     var releasedKidnapped = rowRepository.getReleasedRows()
     var activitiesKidnapped = rowRepository.getActivitiesRows()
 
-    val filteredRows = MutableLiveData<List<Row>>()
-
-
     fun getAllRows() {
         viewModelScope.launch(Dispatchers.IO) {
             allKidnapped = rowRepository.getAllRows()
@@ -36,14 +33,6 @@ class RowViewModel(private val rowRepository: RowRepository): ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             allKidnapped = rowRepository.getActivitiesRows()
         }
-    }
-
-    fun getFilteredNameRows(
-        userInput: String
-    ): List<Row> {
-        return rowRepository.getFilteredNameRows(
-            userInput
-        )
     }
 
     fun getFilteredRows(
