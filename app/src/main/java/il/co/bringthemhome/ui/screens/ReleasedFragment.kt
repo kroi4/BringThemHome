@@ -1,8 +1,6 @@
 package il.co.bringthemhome.ui.screens
 
 import android.app.AlertDialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -45,6 +43,11 @@ class ReleasedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         fetch()
+        val results = viewModel.getReleasedCountRows()
+        binding.tvReleased.text = "${getString(R.string.released)} (${results.toString()})"
+
+
+
 
         ItemTouchHelper(object : ItemTouchHelper.Callback() {
             override fun getMovementFlags(
@@ -158,5 +161,46 @@ class ReleasedFragment : Fragment() {
         }
     }
 
+//    private fun fetchCount() {
+//        var countRows = viewModel.getCountRows()
+//        viewModel.releasedKidnapped.observe(viewLifecycleOwner) {
+//            when (it.status) {
+//                is Loading -> {
+//                    binding.rvKidnapped.isVisible = false
+//                    binding.progressBar.isVisible = true
+//                }
+//                is Success -> {
+//                    if (!it.status.data.isNullOrEmpty()) {
+//                        binding.tvReleased.text = countRows.toString()
+//
+//                    }
+//                }
+//                is Error -> {
+//                    binding.progressBar.isVisible = false
+//                    binding.rvKidnapped.isVisible = false
+//                    Toast.makeText(
+//                        requireContext(),
+//                        getString(R.string.couldnt_connect_to_server),
+//                        Toast.LENGTH_SHORT
+//                    )
+//                        .show()
+//                    binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
+//                    binding.tvStatus.isVisible = true
+//                }
+//                else -> {
+//                    binding.progressBar.isVisible = false
+//                    binding.rvKidnapped.isVisible = false
+//                    Toast.makeText(
+//                        requireContext(),
+//                        getString(R.string.couldnt_connect_to_server),
+//                        Toast.LENGTH_SHORT
+//                    )
+//                        .show()
+//                    binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
+//                    binding.tvStatus.isVisible = true
+//                }
+//            }
+//        }
+//    }
 
 }

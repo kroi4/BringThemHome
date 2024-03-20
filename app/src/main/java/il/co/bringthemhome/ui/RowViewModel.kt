@@ -1,17 +1,15 @@
 package il.co.bringthemhome.ui
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import il.co.bringthemhome.data.models.Kidnapped
 import il.co.bringthemhome.data.models.Row
 import il.co.bringthemhome.data.repository.RowRepository
-import il.co.bringthemhome.utils.Status
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class RowViewModel(private val rowRepository: RowRepository): ViewModel() {
+class RowViewModel(private val rowRepository: RowRepository) : ViewModel() {
 
     var allKidnapped = rowRepository.getAllRows()
     var releasedKidnapped = rowRepository.getReleasedRows()
@@ -49,11 +47,25 @@ class RowViewModel(private val rowRepository: RowRepository): ViewModel() {
 
 
     fun clearRows() {
-        viewModelScope.launch(Dispatchers.IO){
+        viewModelScope.launch(Dispatchers.IO) {
             rowRepository.clearRows()
         }
     }
 
+    fun getAllCountRows(): Int {
+        return rowRepository.getAllCountRows()
+    }
 
+    fun getReleasedCountRows(): Int {
+        return rowRepository.getReleasedCountRows()
+    }
+
+    fun getActivitiesCountRows(): Int {
+        return rowRepository.getActivitiesCountRows()
+    }
+
+//    fun getCountFilteredRows(): Int {
+//        return rowRepository.getCountFilteredRows(name, minAge, maxAge, gender, city)
+//    }
 
 }

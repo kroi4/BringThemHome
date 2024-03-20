@@ -58,5 +58,21 @@ class RowRepository(
         rowDatabase.rowDao().clearRows()
     }
 
+    fun getAllCountRows(): Int = runBlocking {
+        rowDatabase.rowDao().getAllCountRows()
+    }
+
+    fun getReleasedCountRows(): Int = runBlocking {
+        rowDatabase.rowDao().getReleasedCountRows()
+    }
+
+    fun getActivitiesCountRows(): Int = runBlocking {
+        rowDatabase.rowDao().getActivitiesCountRows()
+    }
+
+//    fun getCountFilteredRows(): Int = runBlocking {
+//        rowDatabase.rowDao().getCountFilteredRows(name, minAge, maxAge, gender, city)
+//    }
+
 
 }

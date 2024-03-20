@@ -1,14 +1,10 @@
 package il.co.bringthemhome.ui.screens
 
 import android.app.AlertDialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -16,7 +12,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import il.co.bringthemhome.R
 import il.co.bringthemhome.api.RowsAdapter
 import il.co.bringthemhome.data.models.Row
@@ -28,7 +23,6 @@ import il.co.bringthemhome.utils.Resource
 import il.co.bringthemhome.utils.Success
 import il.co.bringthemhome.utils.autoCleared
 import il.co.bringthemhome.utils.imgGlideCaster
-import il.co.bringthemhome.utils.showToast
 
 class ActivitiesFragment : Fragment() {
 
@@ -51,6 +45,9 @@ class ActivitiesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         fetch()
+        val results = viewModel.getActivitiesCountRows()
+        binding.tvActivity.text = "${getString(R.string.activities)} (${results.toString()})"
+
 
         ItemTouchHelper(object : ItemTouchHelper.Callback() {
             override fun getMovementFlags(

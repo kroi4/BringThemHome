@@ -102,10 +102,20 @@ class SearchFragment : Fragment() {
                 performSearch()
             }
 
-            gender.setOnItemClickListener { adapterView, view, position, id ->
-                currentGenderSelection = adapterView.getItemAtPosition(position) as String
+//            gender.setOnItemClickListener { adapterView, view, position, id ->
+//                currentGenderSelection = adapterView.getItemAtPosition(position) as String
+//                performSearch()
+//            }
+
+            binding.gender.setOnItemClickListener { adapterView, view, position, id ->
+                currentGenderSelection = when(position) {
+                    0 -> "גבר"
+                    1 -> "אישה"
+                    else -> ""
+                }
                 performSearch()
             }
+
 
             etName.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

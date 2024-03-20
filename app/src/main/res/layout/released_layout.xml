@@ -9,6 +9,7 @@
     tools:context=".ui.screens.ReleasedFragment">
 
     <TextView
+        android:id="@+id/tvReleased"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/released"
