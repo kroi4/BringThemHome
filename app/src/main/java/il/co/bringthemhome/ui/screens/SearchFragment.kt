@@ -15,6 +15,7 @@ import androidx.fragment.app.activityViewModels
 import android.text.TextWatcher
 import android.view.Gravity
 import android.widget.ArrayAdapter
+import android.widget.PopupMenu
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -46,6 +47,7 @@ class SearchFragment : Fragment() {
     private var currentNameInput: String? = null
     private var currentGenderSelection: String? = null
     private var currentCityInput: String? = null
+    private var currentStatusInput: String? = null
     private var currentMinAgeInput: String? = null
     private var currentMaxAgeInput: String? = null
 
@@ -68,6 +70,12 @@ class SearchFragment : Fragment() {
         val genders = resources.getStringArray(R.array.genders)
         val genderAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_menu_popup_item, genders)
         binding.gender.setAdapter(genderAdapter)
+
+        binding.ivButtonStatus.setOnClickListener { imageView ->
+            showStatusMenu(imageView)
+        }
+
+
 
 
         ItemTouchHelper(object : ItemTouchHelper.Callback() {
@@ -101,11 +109,6 @@ class SearchFragment : Fragment() {
                 currentGenderSelection = ""
                 performSearch()
             }
-
-//            gender.setOnItemClickListener { adapterView, view, position, id ->
-//                currentGenderSelection = adapterView.getItemAtPosition(position) as String
-//                performSearch()
-//            }
 
             binding.gender.setOnItemClickListener { adapterView, view, position, id ->
                 currentGenderSelection = when(position) {
@@ -172,12 +175,13 @@ class SearchFragment : Fragment() {
 
     private fun performSearch() {
         val nameInput = currentNameInput ?: ""
-        val CityInput = currentCityInput ?: ""
+        val cityInput = currentCityInput ?: ""
         val genderSelection = currentGenderSelection ?: ""
+        val status = currentStatusInput ?: ""
         val minAge = currentMinAgeInput ?: ""
-        val maxAage = currentMaxAgeInput ?: ""
+        val maxAge = currentMaxAgeInput ?: ""
 
-        val results = viewModel.getFilteredRows(nameInput, minAge,maxAage ,genderSelection, CityInput)
+        val results = viewModel.getFilteredRows(nameInput, minAge, maxAge, genderSelection, cityInput, status)
         binding.rvKidnapped.adapter = setRecyclerViewer(results)
 
         val displayMetrics = resources.displayMetrics
@@ -212,6 +216,36 @@ class SearchFragment : Fragment() {
             override fun onItemLongClicked(index: Int) {}
         })
     }
+
+
+    private fun showStatusMenu(view: View) {
+        val popup = PopupMenu(requireContext(), view)
+        popup.menuInflater.inflate(R.menu.status_menu, popup.menu)
+
+        popup.setOnMenuItemClickListener { menuItem ->
+            currentStatusInput = when (menuItem.itemId) {
+                R.id.action_none -> {
+                    binding.ivButtonStatus.setImageResource(R.drawable.grey)
+                    "" // אם ללא בחירה מייצג כולם, נניח שהערך הוא ריק
+                }
+                R.id.action_released -> {
+                    binding.ivButtonStatus.setImageResource(R.drawable.green)
+                    "2" // ערך המייצג "משוחררים"
+                }
+                R.id.action_active -> {
+                    binding.ivButtonStatus.setImageResource(R.drawable.red)
+                    "1" // ערך המייצג "פעילים"
+                }
+                else -> null
+            }
+
+            performSearch() // קריאה מחדש לפונקציה עם הערך החדש של הסטטוס
+            true
+        }
+
+        popup.show()
+    }
+
 
 
 }

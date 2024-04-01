@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_none"
+        android:title="@string/empty"
+        android:icon="@drawable/grey"/>
+    <item
+        android:id="@+id/action_released"
+        android:title="@string/released"
+        android:icon="@drawable/green"/>
+    <item
+        android:id="@+id/action_active"
+        android:title="@string/activities"
+        android:icon="@drawable/red"/>
+</menu>

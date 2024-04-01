@@ -5,8 +5,8 @@
     <string name="hrs">HRS</string>
     <string name="min">MIN</string>
     <string name="sec">SEC</string>
-    <string name="activities">Activities</string>
-    <string name="released">Released</string>
+    <string name="activities">Abducted</string>
+    <string name="released">Returned</string>
     <string name="before_23">Before 23</string>
     <string name="dd" translatable="false">DD</string>
     <string name="hh" translatable="false">HH</string>
@@ -28,4 +28,5 @@
     <string name="ok">OK</string>
     <string name="selected_age_range">Selected age range</string>
     <string name="cancel">CANCEL</string>
+    <string name="empty">all</string>
 </resources>

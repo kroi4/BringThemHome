@@ -34,10 +34,10 @@ class RowViewModel(private val rowRepository: RowRepository) : ViewModel() {
     }
 
     fun getFilteredRows(
-        name: String?, minAge: String?, maxAge: String?, gender: String?, city: String?
+        name: String?, minAge: String?, maxAge: String?, gender: String?, city: String?, status: String?
     ): List<Row> {
         return rowRepository.getFilteredRows(
-            name, minAge, maxAge, gender, city
+            name, minAge, maxAge, gender, city, status
         )
     }
 

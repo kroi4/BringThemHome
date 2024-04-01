@@ -72,9 +72,22 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent">
 
+
+        <ImageView
+            android:id="@+id/ivButtonStatus"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:src="@drawable/grey"
+            android:clickable="true"
+            android:focusable="true" />
+
+
+
         <!-- Space between input fields -->
         <View
-            android:layout_width="16dp"
+            android:layout_width="10dp"
             android:layout_height="match_parent" />
 
         <Button

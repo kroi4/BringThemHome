@@ -6,8 +6,8 @@
     <string name="hrs">שעות</string>
     <string name="min">דקות</string>
     <string name="sec">שניות</string>
-    <string name="activities">פעילים</string>
-    <string name="released">משוחררים</string>
+    <string name="activities">חטופים</string>
+    <string name="released">הוחזרו</string>
     <string name="before_23">לפני 23</string>
     <string name="all_kidnapped">כל החטופים</string>
     <string name="search" >חיפוש</string>
@@ -25,4 +25,5 @@
     <string name="ok">אישור</string>
     <string name="selected_age_range">טווח גילאים נבחר</string>
     <string name="cancel">ביטול</string>
+    <string name="empty">כולם</string>
 </resources>
