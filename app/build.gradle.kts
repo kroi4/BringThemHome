@@ -56,9 +56,6 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    // Glide
-    implementation("com.github.bumptech.glide:glide:4.14.2")
-
     // lifecycle
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
@@ -74,6 +71,5 @@ dependencies {
     // ViewPager2
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.google.android.material:material:1.11.0")
-
 
 }
