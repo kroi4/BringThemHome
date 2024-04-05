@@ -35,7 +35,6 @@ class AllKidnappedFragment : Fragment() {
     private var itemBinding: DetailsLayoutBinding by autoCleared()
     private val viewModel: RowViewModel by activityViewModels()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,33 +48,9 @@ class AllKidnappedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         fetch()
-
-        ItemTouchHelper(object : ItemTouchHelper.Callback() {
-            override fun getMovementFlags(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder
-            ) = makeFlag(
-                ItemTouchHelper.ACTION_STATE_SWIPE,
-                ItemTouchHelper.ACTION_STATE_IDLE or ItemTouchHelper.ACTION_STATE_IDLE
-            )
-
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                TODO("Not yet implemented")
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                val item =
-//                    (binding.recycler.adapter as ItemAdapter).itemAt(viewHolder.adapterPosition)
-//                viewModel.deleteItem(item)
-            }
-        }).attachToRecyclerView(binding.rvKidnapped)
     }
 
-    fun setRecyclerViewer(it: Resource<List<Row>>): RowsAdapter {
+    private fun setRecyclerViewer(it: Resource<List<Row>>): RowsAdapter {
         return RowsAdapter(it.status.data!!, object : RowsAdapter.ItemListener {
 
             override fun onItemClicked(index: Int) {
@@ -87,28 +62,15 @@ class AllKidnappedFragment : Fragment() {
                 val dialog = builder.create()
 
                 itemBinding.apply {
-                    tvDetailKidnappedName.text =
-                        "${it.status.data[index].b} ${it.status.data[index].c}"
+                    tvDetailKidnappedName.text = "${it.status.data[index].b} ${it.status.data[index].c}"
                     tvDetailKidnappedAge.text = "${it.status.data[index].i}"
                     tvDetailKidnappedInfo.text = "${it.status.data[index].l}"
                     imgGlideCaster(requireContext(), it.status.data[index].j, ivDetailKidnappedImg)
-
                     dialog.show()
                 }
-
-//                Toast.makeText(
-//                    requireContext(),
-//                    "${it.status.data[index]}", Toast.LENGTH_SHORT
-//                ).show()
             }
 
-            override fun onItemLongClicked(index: Int) {
-                //                    viewModel.setItem(it.result.records!![index])
-                //                    Toast.makeText(
-                //                        requireContext(),
-                //                        "${it.result.records!![index]}", Toast.LENGTH_SHORT
-                //                    ).show()
-            }
+            override fun onItemLongClicked(index: Int) {}
         })
     }
 
@@ -134,7 +96,6 @@ class AllKidnappedFragment : Fragment() {
                         val numOfColumns = (screenWidthDp / columnWidthDp).toInt()
                         binding.rvKidnapped.layoutManager =
                             GridLayoutManager(requireContext(), numOfColumns)
-
                     }
                 }
 

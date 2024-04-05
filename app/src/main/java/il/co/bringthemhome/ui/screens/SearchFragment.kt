@@ -51,7 +51,6 @@ class SearchFragment : Fragment() {
     private var currentMinAgeInput: String? = null
     private var currentMaxAgeInput: String? = null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,7 +59,6 @@ class SearchFragment : Fragment() {
 
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -75,35 +73,7 @@ class SearchFragment : Fragment() {
             showStatusMenu(imageView)
         }
 
-
-
-
-        ItemTouchHelper(object : ItemTouchHelper.Callback() {
-            override fun getMovementFlags(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder
-            ) = makeFlag(
-                ItemTouchHelper.ACTION_STATE_SWIPE,
-                ItemTouchHelper.ACTION_STATE_IDLE or ItemTouchHelper.ACTION_STATE_IDLE
-            )
-
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                TODO("Not yet implemented")
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                val item =
-//                    (binding.recycler.adapter as ItemAdapter).itemAt(viewHolder.adapterPosition)
-//                viewModel.deleteItem(item)
-            }
-        }).attachToRecyclerView(binding.rvKidnapped)
-
-        binding.apply {
-
+         binding.apply {
             gender.setOnClickListener {
                 binding.gender.setText("", false)
                 currentGenderSelection = ""
@@ -118,7 +88,6 @@ class SearchFragment : Fragment() {
                 }
                 performSearch()
             }
-
 
             etName.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -139,7 +108,6 @@ class SearchFragment : Fragment() {
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                         currentCityInput = s?.toString()
                         performSearch()
-
                 }
 
                 override fun afterTextChanged(s: Editable?) {
@@ -163,13 +131,10 @@ class SearchFragment : Fragment() {
                         currentMinAgeInput = selectedValues[0].toInt().toString()
                         currentMaxAgeInput = selectedValues[1].toInt().toString()
                         performSearch()
-
-
                     }
                     .setNegativeButton(getString(R.string.cancel), null)
                     .show()
             }
-
         }
     }
 
@@ -189,7 +154,6 @@ class SearchFragment : Fragment() {
         val columnWidthDp = 180
         val numOfColumns = (screenWidthDp / columnWidthDp).toInt()
         binding.rvKidnapped.layoutManager = GridLayoutManager(requireContext(), numOfColumns)
-
     }
 
 
@@ -208,7 +172,6 @@ class SearchFragment : Fragment() {
                     tvDetailKidnappedAge.text = "${it[index].i}"
                     tvDetailKidnappedInfo.text = "${it[index].l}"
                     imgGlideCaster(requireContext(),it[index].j,ivDetailKidnappedImg)
-
                     dialog.show()
                 }
             }

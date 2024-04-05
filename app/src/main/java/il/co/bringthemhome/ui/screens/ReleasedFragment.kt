@@ -46,32 +46,6 @@ class ReleasedFragment : Fragment() {
         val results = viewModel.getReleasedCountRows()
         binding.tvReleased.text = "${getString(R.string.released)} (${results.toString()})"
 
-
-
-
-        ItemTouchHelper(object : ItemTouchHelper.Callback() {
-            override fun getMovementFlags(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder
-            ) = makeFlag(
-                ItemTouchHelper.ACTION_STATE_SWIPE,
-                ItemTouchHelper.ACTION_STATE_IDLE or ItemTouchHelper.ACTION_STATE_IDLE
-            )
-
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                TODO("Not yet implemented")
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                val item =
-//                    (binding.recycler.adapter as ItemAdapter).itemAt(viewHolder.adapterPosition)
-//                viewModel.deleteItem(item)
-            }
-        }).attachToRecyclerView(binding.rvKidnapped)
     }
 
     fun setRecyclerViewer(it: Resource<List<Row>>): RowsAdapter {
@@ -93,20 +67,9 @@ class ReleasedFragment : Fragment() {
 
                     dialog.show()
                 }
-
-//                Toast.makeText(
-//                    requireContext(),
-//                    "${it.status.data[index]}", Toast.LENGTH_SHORT
-//                ).show()
             }
 
-            override fun onItemLongClicked(index: Int) {
-                //                    viewModel.setItem(it.result.records!![index])
-                //                    Toast.makeText(
-                //                        requireContext(),
-                //                        "${it.result.records!![index]}", Toast.LENGTH_SHORT
-                //                    ).show()
-            }
+            override fun onItemLongClicked(index: Int) { }
         })
     }
 
@@ -160,47 +123,4 @@ class ReleasedFragment : Fragment() {
             }
         }
     }
-
-//    private fun fetchCount() {
-//        var countRows = viewModel.getCountRows()
-//        viewModel.releasedKidnapped.observe(viewLifecycleOwner) {
-//            when (it.status) {
-//                is Loading -> {
-//                    binding.rvKidnapped.isVisible = false
-//                    binding.progressBar.isVisible = true
-//                }
-//                is Success -> {
-//                    if (!it.status.data.isNullOrEmpty()) {
-//                        binding.tvReleased.text = countRows.toString()
-//
-//                    }
-//                }
-//                is Error -> {
-//                    binding.progressBar.isVisible = false
-//                    binding.rvKidnapped.isVisible = false
-//                    Toast.makeText(
-//                        requireContext(),
-//                        getString(R.string.couldnt_connect_to_server),
-//                        Toast.LENGTH_SHORT
-//                    )
-//                        .show()
-//                    binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
-//                    binding.tvStatus.isVisible = true
-//                }
-//                else -> {
-//                    binding.progressBar.isVisible = false
-//                    binding.rvKidnapped.isVisible = false
-//                    Toast.makeText(
-//                        requireContext(),
-//                        getString(R.string.couldnt_connect_to_server),
-//                        Toast.LENGTH_SHORT
-//                    )
-//                        .show()
-//                    binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
-//                    binding.tvStatus.isVisible = true
-//                }
-//            }
-//        }
-//    }
-
 }

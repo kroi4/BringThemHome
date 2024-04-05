@@ -26,4 +26,5 @@
     <string name="selected_age_range">טווח גילאים נבחר</string>
     <string name="cancel">ביטול</string>
     <string name="empty">כולם</string>
+    <string name="copied">המידע הועתק</string>
 </resources>

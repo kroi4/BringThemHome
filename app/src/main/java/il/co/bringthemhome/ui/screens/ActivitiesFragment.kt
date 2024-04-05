@@ -10,8 +10,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import il.co.bringthemhome.R
 import il.co.bringthemhome.api.RowsAdapter
 import il.co.bringthemhome.data.models.Row
@@ -36,9 +34,7 @@ class ActivitiesFragment : Fragment() {
     ): View? {
         binding = ActivitiesLayoutBinding.inflate(layoutInflater)
 
-
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,34 +43,9 @@ class ActivitiesFragment : Fragment() {
         fetch()
         val results = viewModel.getActivitiesCountRows()
         binding.tvActivity.text = "${getString(R.string.activities)} (${results.toString()})"
-
-
-        ItemTouchHelper(object : ItemTouchHelper.Callback() {
-            override fun getMovementFlags(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder
-            ) = makeFlag(
-                ItemTouchHelper.ACTION_STATE_SWIPE,
-                ItemTouchHelper.ACTION_STATE_IDLE or ItemTouchHelper.ACTION_STATE_IDLE
-            )
-
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                TODO("Not yet implemented")
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                val item =
-//                    (binding.recycler.adapter as ItemAdapter).itemAt(viewHolder.adapterPosition)
-//                viewModel.deleteItem(item)
-            }
-        }).attachToRecyclerView(binding.rvKidnapped)
     }
 
-    fun setRecyclerViewer(it: Resource<List<Row>>): RowsAdapter {
+    private fun setRecyclerViewer(it: Resource<List<Row>>): RowsAdapter {
         return RowsAdapter(it.status.data!!, object : RowsAdapter.ItemListener {
 
             override fun onItemClicked(index: Int) {
@@ -90,7 +61,6 @@ class ActivitiesFragment : Fragment() {
                     tvDetailKidnappedAge.text = "${it.status.data[index].i}"
                     tvDetailKidnappedInfo.text = "${it.status.data[index].l}"
                     imgGlideCaster(requireContext(),it.status.data[index].j,ivDetailKidnappedImg)
-
                     dialog.show()
                 }
             }
@@ -149,7 +119,5 @@ class ActivitiesFragment : Fragment() {
             }
         }
     }
-
-
 
 }

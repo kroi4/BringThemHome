@@ -17,8 +17,7 @@ import kotlin.concurrent.timerTask
 class HomePageFragment : Fragment(R.layout.home_page_layout) {
 
     private var binding: HomePageLayoutBinding by autoCleared()
-    private var timer: Timer? = null // הגדר את הטיימר כמשתנה חבר של ה-Fragment
-
+    private var timer: Timer? = null // Set the timer as a member variable of the Fragment
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +33,6 @@ class HomePageFragment : Fragment(R.layout.home_page_layout) {
         super.onResume()
         startTimer()
     }
-
 
     private fun startTimer() {
         val targetCalendar = Calendar.getInstance().apply {
@@ -58,7 +56,7 @@ class HomePageFragment : Fragment(R.layout.home_page_layout) {
                     val seconds = ((diff / 1000) % 60).toInt()
 
                     activity?.runOnUiThread {
-                        if (isAdded) { // בדוק אם הפרגמנט עדיין מחובר ונמצא בשימוש
+                        if (isAdded) { // Check if the fragment is still connected and in use
                             binding.tvDays.text = String.format("%03d", days)
                             binding.tvHrs.text = String.format("%02d", hours)
                             binding.tvMin.text = String.format("%02d", minutes)
@@ -69,14 +67,13 @@ class HomePageFragment : Fragment(R.layout.home_page_layout) {
                     cancel()
                     activity?.runOnUiThread {
                         if (isAdded) {
-                            // פעולות שיתבצעו כאשר הספירה קדימה מסתיימת
+                            // Actions performed when the countdown ends
                         }
                     }
                 }
             }, 0, 1000)
         }
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -87,5 +84,4 @@ class HomePageFragment : Fragment(R.layout.home_page_layout) {
         val adapter = ScreenSlidePagerAdapter(requireActivity())
         binding.viewPager.adapter = adapter
     }
-
 }

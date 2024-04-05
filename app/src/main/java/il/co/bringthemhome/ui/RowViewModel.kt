@@ -41,10 +41,8 @@ class RowViewModel(private val rowRepository: RowRepository) : ViewModel() {
         )
     }
 
-
     val rows: LiveData<Kidnapped>
         get() = rowRepository.rows
-
 
     fun clearRows() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -63,9 +61,4 @@ class RowViewModel(private val rowRepository: RowRepository) : ViewModel() {
     fun getActivitiesCountRows(): Int {
         return rowRepository.getActivitiesCountRows()
     }
-
-//    fun getCountFilteredRows(): Int {
-//        return rowRepository.getCountFilteredRows(name, minAge, maxAge, gender, city)
-//    }
-
 }

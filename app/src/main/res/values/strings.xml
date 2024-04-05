@@ -29,4 +29,5 @@
     <string name="selected_age_range">Selected age range</string>
     <string name="cancel">CANCEL</string>
     <string name="empty">all</string>
+    <string name="copied">The information has been copied</string>
 </resources>

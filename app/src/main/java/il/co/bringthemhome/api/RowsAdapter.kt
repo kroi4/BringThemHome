@@ -1,18 +1,21 @@
 package il.co.bringthemhome.api
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import il.co.bringthemhome.R
 import il.co.bringthemhome.data.models.Row
 import il.co.bringthemhome.databinding.ItemLayoutBinding
 import il.co.bringthemhome.utils.imgGlideCaster
+import il.co.bringthemhome.utils.showToast
 
-class RowsAdapter(val rows: List<Row>, val callBack: ItemListener) :
+
+class RowsAdapter(private val rows: List<Row>, val callBack: ItemListener) :
     RecyclerView.Adapter<RowsAdapter.ItemViewHolder>() {
 
     interface ItemListener {
@@ -35,7 +38,12 @@ class RowsAdapter(val rows: List<Row>, val callBack: ItemListener) :
 
         override fun onLongClick(p0: View?): Boolean {
             callBack.onItemLongClicked(adapterPosition)
-            return false
+            val clipboard = itemView.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("kidnappedClipboard", "${rows[adapterPosition].b} ${rows[adapterPosition].c}, ${rows[adapterPosition].i} - ${rows[adapterPosition].l}")
+            clipboard.setPrimaryClip(clip)
+
+            showToast(itemView.context, "${ContextCompat.getString(itemView.context, R.string.copied)}")
+            return true
         }
 
         fun bind(row: Row) {
@@ -48,7 +56,6 @@ class RowsAdapter(val rows: List<Row>, val callBack: ItemListener) :
             }
         }
     }
-
 
     fun itemAt(position: Int) = rows[position]
 
@@ -63,10 +70,7 @@ class RowsAdapter(val rows: List<Row>, val callBack: ItemListener) :
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(rows[position])
-        Glide.with(holder.itemView)
-            .load(rows[position].j)
-            .override(200, 200)
-            .into(holder.itemView.findViewById(R.id.ivKidnappedImg))
+        imgGlideCaster(holder.itemView.context, rows[position].j, holder.itemView.findViewById(R.id.ivKidnappedImg))
     }
 
     override fun getItemCount() =

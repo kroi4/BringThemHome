@@ -13,5 +13,4 @@ object RetrofitInstance {
             .build()
             .create(KidnappedApi::class.java)
     }
-
 }

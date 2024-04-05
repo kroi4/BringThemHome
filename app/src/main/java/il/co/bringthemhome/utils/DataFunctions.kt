@@ -5,11 +5,12 @@ import androidx.lifecycle.liveData
 import androidx.lifecycle.map
 import kotlinx.coroutines.Dispatchers
 
-fun <T,A> performFetchingAndSaving(localDbFetch: () -> LiveData<T>,
-                                   remoteDbFetch: suspend () ->Resource<A>,
-                                   localDbClear: (suspend () -> Unit)?,
-                                   localDbSave: suspend (A) -> Unit
-) : LiveData<Resource<T>> =
+fun <T, A> performFetchingAndSaving(
+    localDbFetch: () -> LiveData<T>,
+    remoteDbFetch: suspend () -> Resource<A>,
+    localDbClear: (suspend () -> Unit)?,
+    localDbSave: suspend (A) -> Unit
+): LiveData<Resource<T>> =
 
     liveData(Dispatchers.IO) {
 

@@ -2,7 +2,6 @@ package il.co.bringthemhome.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import il.co.bringthemhome.api.KidnappedApi
 import il.co.bringthemhome.data.localDb.RowDao
 import il.co.bringthemhome.data.localDb.RowDatabase
 import il.co.bringthemhome.data.models.Kidnapped
@@ -12,7 +11,6 @@ import il.co.bringthemhome.utils.performFetchingAndSaving
 import kotlinx.coroutines.runBlocking
 
 class RowRepository(
-    private val apiInterface: KidnappedApi,
     private val rowDatabase: RowDatabase,
     private val remoteDatasource: RowRemoteDataSource,
     private val localDatasource: RowDao
@@ -44,7 +42,6 @@ class RowRepository(
         { localDatasource.insertRow(it.rows) }
     )
 
-
     fun getFilteredRows(
         name: String?, minAge: String?, maxAge: String?, gender: String?, city: String?, status: String?
     ): List<Row> = runBlocking {
@@ -52,7 +49,6 @@ class RowRepository(
             name, minAge, maxAge, gender, city, status
         )
     }
-
 
     fun clearRows() {
         rowDatabase.rowDao().clearRows()
@@ -69,10 +65,4 @@ class RowRepository(
     fun getActivitiesCountRows(): Int = runBlocking {
         rowDatabase.rowDao().getActivitiesCountRows()
     }
-
-//    fun getCountFilteredRows(): Int = runBlocking {
-//        rowDatabase.rowDao().getCountFilteredRows(name, minAge, maxAge, gender, city)
-//    }
-
-
 }

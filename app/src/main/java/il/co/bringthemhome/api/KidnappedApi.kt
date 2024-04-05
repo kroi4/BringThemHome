@@ -8,5 +8,4 @@ interface KidnappedApi {
 
     @GET("website/data.json")
     suspend fun getKidnapped(): Response<Kidnapped>
-
 }
