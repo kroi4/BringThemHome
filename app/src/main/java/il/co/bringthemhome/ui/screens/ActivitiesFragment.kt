@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -21,6 +20,7 @@ import il.co.bringthemhome.utils.Resource
 import il.co.bringthemhome.utils.Success
 import il.co.bringthemhome.utils.autoCleared
 import il.co.bringthemhome.utils.imgGlideCaster
+import il.co.bringthemhome.utils.showToast
 
 class ActivitiesFragment : Fragment() {
 
@@ -95,24 +95,16 @@ class ActivitiesFragment : Fragment() {
                 is Error -> {
                     binding.progressBar.isVisible = false
                     binding.rvKidnapped.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.couldnt_connect_to_server),
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
+                    showToast(requireContext(),getString(R.string.couldnt_connect_to_server))
+
                     binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
                     binding.tvStatus.isVisible = true
                 }
                 else -> {
                     binding.progressBar.isVisible = false
                     binding.rvKidnapped.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.couldnt_connect_to_server),
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
+                    showToast(requireContext(),getString(R.string.couldnt_connect_to_server))
+
                     binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
                     binding.tvStatus.isVisible = true
                 }

@@ -13,8 +13,8 @@ class MyApplication : Application() {
 
         val database = RowDatabase.getDatabase(applicationContext)
         val remoteDataSource = RowRemoteDataSource(RetrofitInstance.api)
-        val recordDao = database?.rowDao()
+        val rowDao = database?.rowDao()
 
-        rowRepository = RowRepository(RetrofitInstance.api, database!!, remoteDataSource, recordDao!!)
+        rowRepository = RowRepository(database!!, remoteDataSource, rowDao!!)
     }
 }

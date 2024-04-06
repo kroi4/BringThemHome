@@ -44,5 +44,4 @@ AND (:status IS NULL OR :status = '' OR status = :status)
 
     @Query("SELECT COUNT(*) FROM rows WHERE status = '1'")
     suspend fun getActivitiesCountRows(): Int
-
 }

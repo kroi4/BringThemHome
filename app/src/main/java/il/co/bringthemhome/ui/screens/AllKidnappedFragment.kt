@@ -1,33 +1,26 @@
 package il.co.bringthemhome.ui.screens
 
 import android.app.AlertDialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import il.co.bringthemhome.R
 import il.co.bringthemhome.api.RowsAdapter
 import il.co.bringthemhome.data.models.Row
 import il.co.bringthemhome.databinding.AllKidnappedLayoutBinding
 import il.co.bringthemhome.databinding.DetailsLayoutBinding
-import il.co.bringthemhome.databinding.ReleasedLayoutBinding
 import il.co.bringthemhome.ui.RowViewModel
 import il.co.bringthemhome.utils.Loading
 import il.co.bringthemhome.utils.Resource
 import il.co.bringthemhome.utils.Success
 import il.co.bringthemhome.utils.autoCleared
 import il.co.bringthemhome.utils.imgGlideCaster
-
+import il.co.bringthemhome.utils.showToast
 
 class AllKidnappedFragment : Fragment() {
 
@@ -102,12 +95,8 @@ class AllKidnappedFragment : Fragment() {
                 is Error -> {
                     binding.progressBar.isVisible = false
                     binding.rvKidnapped.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.couldnt_connect_to_server),
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
+                    showToast(requireContext(),getString(R.string.couldnt_connect_to_server))
+
                     binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
                     binding.tvStatus.isVisible = true
                 }
@@ -115,12 +104,8 @@ class AllKidnappedFragment : Fragment() {
                 else -> {
                     binding.progressBar.isVisible = false
                     binding.rvKidnapped.isVisible = false
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.couldnt_connect_to_server),
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
+                    showToast(requireContext(),getString(R.string.couldnt_connect_to_server))
+
                     binding.tvStatus.text = getString(R.string.couldnt_connect_to_server)
                     binding.tvStatus.isVisible = true
                 }

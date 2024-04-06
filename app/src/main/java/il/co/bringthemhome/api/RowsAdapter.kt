@@ -14,7 +14,6 @@ import il.co.bringthemhome.databinding.ItemLayoutBinding
 import il.co.bringthemhome.utils.imgGlideCaster
 import il.co.bringthemhome.utils.showToast
 
-
 class RowsAdapter(private val rows: List<Row>, val callBack: ItemListener) :
     RecyclerView.Adapter<RowsAdapter.ItemViewHolder>() {
 

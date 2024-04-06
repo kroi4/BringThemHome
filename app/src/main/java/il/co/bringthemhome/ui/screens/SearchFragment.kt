@@ -1,8 +1,6 @@
 package il.co.bringthemhome.ui.screens
 
 import android.app.AlertDialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.text.Editable
 import androidx.fragment.app.Fragment
@@ -10,32 +8,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import android.text.TextWatcher
-import android.view.Gravity
 import android.widget.ArrayAdapter
 import android.widget.PopupMenu
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import il.co.bringthemhome.R
 import il.co.bringthemhome.api.RowsAdapter
 import il.co.bringthemhome.data.models.Row
 import il.co.bringthemhome.databinding.DetailsLayoutBinding
 import il.co.bringthemhome.databinding.DialogSliderBinding
-import il.co.bringthemhome.databinding.ReleasedLayoutBinding
 import il.co.bringthemhome.databinding.SearchLayoutBinding
 import il.co.bringthemhome.ui.RowViewModel
-import il.co.bringthemhome.utils.Loading
-import il.co.bringthemhome.utils.Resource
-import il.co.bringthemhome.utils.Success
 import il.co.bringthemhome.utils.autoCleared
 import il.co.bringthemhome.utils.imgGlideCaster
-import il.co.bringthemhome.utils.showToast
-
 
 class SearchFragment : Fragment() {
 
@@ -189,20 +175,20 @@ class SearchFragment : Fragment() {
             currentStatusInput = when (menuItem.itemId) {
                 R.id.action_none -> {
                     binding.ivButtonStatus.setImageResource(R.drawable.grey)
-                    "" // אם ללא בחירה מייצג כולם, נניח שהערך הוא ריק
+                    "" // No selection represents all, assuming the value is empty
                 }
                 R.id.action_released -> {
                     binding.ivButtonStatus.setImageResource(R.drawable.green)
-                    "2" // ערך המייצג "משוחררים"
+                    "2" // A value representing "Returned"
                 }
                 R.id.action_active -> {
                     binding.ivButtonStatus.setImageResource(R.drawable.red)
-                    "1" // ערך המייצג "פעילים"
+                    "1" // A value representing "Active"
                 }
                 else -> null
             }
 
-            performSearch() // קריאה מחדש לפונקציה עם הערך החדש של הסטטוס
+            performSearch() // Re-calling the function with the new value of the status
             true
         }
 

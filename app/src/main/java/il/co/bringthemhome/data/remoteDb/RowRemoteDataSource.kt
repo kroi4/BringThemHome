@@ -9,5 +9,4 @@ class RowRemoteDataSource(
     suspend fun getReleasedRows() = getResult { apiService.getKidnapped() }
     suspend fun getActivitiesRows() = getResult { apiService.getKidnapped() }
     suspend fun getFilteredNameRows() = getResult { apiService.getKidnapped() }
-
 }
