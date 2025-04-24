@@ -55,10 +55,10 @@ Watch the demo video to see BringThemHome in action:
 
 ## Screenshots
 
-![Image](https://github.com/user-attachments/assets/cf6a0864-ff5e-4328-8fa0-a5706d27a53c)
-![Image](https://github.com/user-attachments/assets/3f1d0559-f5e9-4944-a6ff-4b0ad21df21e)
-![Image](https://github.com/user-attachments/assets/b10a18fe-a3ed-46d4-b7c2-24e5fc121bc0)
-![Image](https://github.com/user-attachments/assets/0cc416f1-d573-40cb-920d-be75e4dcf120)
+<img src="https://github.com/user-attachments/assets/cf6a0864-ff5e-4328-8fa0-a5706d27a53c" width="400"/>
+<img src="https://github.com/user-attachments/assets/3f1d0559-f5e9-4944-a6ff-4b0ad21df21e" width="400"/>
+<img src="https://github.com/user-attachments/assets/b10a18fe-a3ed-46d4-b7c2-24e5fc121bc0" width="400"/>
+<img src="https://github.com/user-attachments/assets/0cc416f1-d573-40cb-920d-be75e4dcf120" width="400"/>
 
 ## Contribution
 
