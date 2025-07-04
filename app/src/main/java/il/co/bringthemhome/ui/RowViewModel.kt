@@ -29,7 +29,7 @@ class RowViewModel(private val rowRepository: RowRepository) : ViewModel() {
 
     fun getActivitiesRows() {
         viewModelScope.launch(Dispatchers.IO) {
-            allKidnapped = rowRepository.getActivitiesRows()
+            activitiesKidnapped = rowRepository.getActivitiesRows()
         }
     }
 

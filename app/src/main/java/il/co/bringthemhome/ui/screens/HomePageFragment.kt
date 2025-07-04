@@ -13,7 +13,7 @@ import java.util.Calendar
 import java.util.Timer
 import kotlin.concurrent.timerTask
 
-class HomePageFragment : Fragment(R.layout.home_page_layout) {
+class HomePageFragment : Fragment() {
 
     private var binding: HomePageLayoutBinding by autoCleared()
     private var timer: Timer? = null // Set the timer as a member variable of the Fragment

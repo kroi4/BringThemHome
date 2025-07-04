@@ -46,7 +46,7 @@ class ReleasedFragment : Fragment() {
 
     }
 
-    fun setRecyclerViewer(it: Resource<List<Row>>): RowsAdapter {
+    private fun setRecyclerViewer(it: Resource<List<Row>>): RowsAdapter {
         return RowsAdapter(it.status.data!!, object : RowsAdapter.ItemListener {
 
             override fun onItemClicked(index: Int) {

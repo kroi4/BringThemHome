@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="initial_age_range">
-        <item>0</item>  <!-- גיל מינימלי ראשוני -->
-        <item>100</item>  <!-- גיל מקסימלי ראשוני -->
+        <item>0</item>  <!-- Initial minimum age -->
+        <item>100</item>  <!-- Initial maximum age -->
     </array>
 </resources>

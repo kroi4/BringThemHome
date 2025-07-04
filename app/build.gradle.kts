@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "il.co.bringthemhome"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "il.co.bringthemhome"
         minSdk = 29
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 35
+        versionCode = 3
+        versionName = "3.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

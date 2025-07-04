@@ -195,6 +195,4 @@ class SearchFragment : Fragment() {
         popup.show()
     }
 
-
-
 }

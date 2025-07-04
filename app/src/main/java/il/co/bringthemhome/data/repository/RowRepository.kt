@@ -43,7 +43,12 @@ class RowRepository(
     )
 
     fun getFilteredRows(
-        name: String?, minAge: String?, maxAge: String?, gender: String?, city: String?, status: String?
+        name: String?,
+        minAge: String?,
+        maxAge: String?,
+        gender: String?,
+        city: String?,
+        status: String?
     ): List<Row> = runBlocking {
         rowDatabase.rowDao().getFilteredRows(
             name, minAge, maxAge, gender, city, status
